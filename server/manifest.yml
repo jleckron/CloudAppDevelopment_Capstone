@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: jleckroncapstone
     routes:
-      - route: $HOST.$DOMAIN
+      - route: jleckronl1a.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: jleckroncapstone-nginx
     routes:
-      - route: $HOST.$DOMAIN/static
+      - route: jleckronl1a.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack
