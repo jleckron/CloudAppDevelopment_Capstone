@@ -7,5 +7,36 @@
 </head>
     <body>
     <!--Add a registration form here -->
+    <div class="container-fluid">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Home</a>
+                </div>
+            </div>
+        </nav>
+        <h1> Sign Up </h1>
+        <hr/>
+        <form class="form" action="{% url 'djangoapp:registration' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label class="font-weight-bold" for="username">User Name</label>
+              <input type="text" class="form-control" name="username" placeholder="Enter User Name:">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="firstname">First Name</label>
+              <input type="text" class="form-control" name="firstname" placeholder="Enter First Name:">
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name:">
+              </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="psw">Password</label>
+                <input type="password" class="form-control" name="psw" placeholder="Enter Password:">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </form>
+    </div>
     </body>
 </html>
