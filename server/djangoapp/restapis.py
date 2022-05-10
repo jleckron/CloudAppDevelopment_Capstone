@@ -24,7 +24,19 @@ def get_request(url, **kwargs):
 
 # Create a `post_request` to make HTTP POST requests
 # e.g., response = requests.post(url, params=kwargs, json=payload)
-
+def post_request(url, **kwargs):
+    print(kwargs)
+    print("POST to {} ".format(url))
+    try:
+        payload = kwargs['payload']
+        response = requests.post(url, json=payload, params=kwargs)
+    except:
+        print("Network exception occurred")
+    else:
+        status_code = response.status_code
+        print("With status {}".format(status_code))
+        json_data = json.loads(response.text)
+        return json_data
 
 # Create a get_dealers_from_cf method to get dealers from a cloud function
 # def get_dealers_from_cf(url, **kwargs):
@@ -71,7 +83,6 @@ def get_dealer_reviews_from_cf(url, **kwargs):
                 id=review_doc['id']
             )
             results.append(review_obj)
-
     return results
 
 
