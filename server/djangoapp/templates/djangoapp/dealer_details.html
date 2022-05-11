@@ -40,15 +40,16 @@
     </nav>
 
     <!-- Add reviews as cards -->
-    <h2>Reviews for {{dealerName}}</h2>
+    <div class="container-fluid">
+        <h2>Reviews for {{dealerName}}</h2>
+    </div>
     <div class="container">
         <div class="card-columns">
             {% if reviews %}
                 {% for review in reviews %}
                     <div class="card">
-                        <img class="card-img-center" src="{{MEDIA_URL}}/emojis/{{review.sentiment}}.png">
-                        <div class="card-body">
-                            <h5 class="card-title">{{review.sentiment}}</h5>
+                        <img class="card-img-center" src="{{MEDIA_URL}}emoji/{{review.sentiment}}.png" style="width:30px">
+                        <div class="card-body" style="background-color:whitesmoke">
                             {% if review.car_make  %}
                                 <h5 class="card-title">{{review.car_make}}, {{review.car_model}}</h5>
                                 <h5 class="card-title">{{review.car_year}}</h5>
@@ -72,8 +73,5 @@
             {% endif %}
         </div>
     </div>
-
-
     </body>
-
 </html>

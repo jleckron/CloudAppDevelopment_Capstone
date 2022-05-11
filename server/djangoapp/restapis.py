@@ -115,6 +115,7 @@ def analyze_review_sentiments(dealerreview):
     params["text"] = dealerreview
     params["version"] = '2020-04-07'
     params["features"] = {"sentiment": {}}
+    params["language"] = "en"
 
     response = requests.get(url, params=params, headers={'Content-Type': 'application/json'}, 
                         auth=HTTPBasicAuth('apikey', key))
